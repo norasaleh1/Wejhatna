@@ -1,0 +1,65 @@
+# Environment variables / secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials.json
+service-account*.json
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+ENV/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Local database / temporary files
+*.db
+*.sqlite
+*.sqlite3
+tmp/
+temp/
+
+# Large/raw/master datasets
+data/raw/
+data/master/
+database/raw/
+database/master_data/
+*.parquet
+*.geojson
+*.gpkg
+*.shp
+*.shx
+*.dbf
+
+# Node / frontend
+node_modules/
+dist/
+build/
+.next/
+
+# Secrets / local config
+config.local.*

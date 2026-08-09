@@ -1,0 +1,11 @@
+# Add exact versions as implementation begins.
+# Example Python dependencies:
+
+fastapi
+uvicorn
+psycopg[binary]
+sqlalchemy
+geoalchemy2
+python-dotenv
+requests
+pydantic
