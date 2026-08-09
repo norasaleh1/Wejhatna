@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="docs/Wejhatna.png" width="100%" alt="Riyadh AI Decision Support Platform">
+</p>
+
 # Wejhatna : Riyadh AI Decision Support Platform
 
 An AI-powered decision support platform for Riyadh that combines spatial data, geospatial analysis, real-world APIs, and an AI Agent to provide context-aware recommendations and insights.
