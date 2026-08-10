@@ -115,6 +115,6 @@ riyadh-ai-decision-support-platform/
 Developed by:
 
 - Nora Alkhudar
-- Aryam
-- Shahad
+- Aryam Alsaidi
+- Shahad Alrashidi
 - Jowaher
