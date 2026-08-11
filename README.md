@@ -108,6 +108,17 @@ riyadh-ai-decision-support-platform/
 ├── requirements.txt
 └── README.md
 ```
+## Team Roles
+
+### Nora Alkhudar — Full-Stack Development, System Integration & Technical Implementation
+
+Led the technical integration and development of the final system, bringing the project’s separate components together into a fully functional application. Integrated the AI Agent with the structured database, replacing the initial mock-data workflow with real project data, and connected multiple external APIs and live services to enrich the agent with real-world information. Developed and enhanced both the backend and frontend, implemented the communication between the web interface, Flask backend, AI Agent, database, and external services, and handled the end-to-end data flow from user input to the generated itinerary. Also refined the user experience, system functionality, and overall technical architecture, transforming the individual project components into a cohesive platform.
+
+## Aryam Alsaidi
+
+## Shahad Alrashidi
+
+## Jowaher
 
 
 ## Team
