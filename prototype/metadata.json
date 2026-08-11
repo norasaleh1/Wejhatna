@@ -1,0 +1,6 @@
+{
+  "name": "وجهتنا | Wajhatuna",
+  "description": "Smart travel planning platform that creates personalized accessible travel itineraries based on user constraints.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
