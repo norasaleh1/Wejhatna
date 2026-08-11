@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wejhatna — Smart Riyadh Trip Planner</title>
+  <meta name="description" content="AI-powered smart Riyadh trip planner that considers weather, prayer times, accessibility, routing, and traffic." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand-wrap">
+        <img src="{{ url_for('static', filename='images/wejhatna-logo.png') }}" alt="Wejhatna logo" class="brand-logo" />
+      </div>
+      <div class="topbar-actions">
+        <span class="status-pill"><span class="status-dot"></span> AI Agent Ready</span>
+        <button class="icon-button" id="themeToggle" type="button" aria-label="Toggle dark mode">
+          <span class="theme-icon" id="themeIcon">☾</span>
+        </button>
+      </div>
+    </header>
+
+    <main class="main-layout">
+      <aside class="planner-panel card" aria-label="Trip planner form">
+        <div class="section-kicker">SMART PLANNER</div>
+        <h1>Plan your Riyadh trip</h1>
+        <p class="section-copy">Tell Wejhatna what matters to you. The agent will build a realistic plan around prayer times, weather, routes, traffic, and accessibility.</p>
+
+        <form id="tripForm" class="planner-form">
+          <div class="field-grid two">
+            <label class="field">
+              <span>Trip date</span>
+              <input id="date" name="date" type="date" required />
+            </label>
+            <label class="field">
+              <span>Number of days</span>
+              <select id="number_of_days" name="number_of_days" required>
+                <option value="1">1 day</option>
+                <option value="2">2 days</option>
+                <option value="3" selected>3 days</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="field-grid two">
+            <label class="field">
+              <span>People</span>
+              <input id="number_of_people" name="number_of_people" type="number" min="1" max="20" value="2" required />
+            </label>
+            <label class="field">
+              <span>Budget</span>
+              <select id="budget" name="budget" required>
+                <option value="low">Low</option>
+                <option value="medium" selected>Medium</option>
+                <option value="high">High</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="choice-row">
+            <div class="choice-block">
+              <span class="choice-label">Children?</span>
+              <div class="segmented" data-field="children">
+                <button type="button" data-value="true">Yes</button>
+                <button type="button" data-value="false" class="active">No</button>
+              </div>
+            </div>
+            <div class="choice-block">
+              <span class="choice-label">Elderly?</span>
+              <div class="segmented" data-field="elderly">
+                <button type="button" data-value="true">Yes</button>
+                <button type="button" data-value="false" class="active">No</button>
+              </div>
+            </div>
+          </div>
+
+          <label class="field">
+            <span>Accessibility requirements</span>
+            <input id="accessibility_requirements" name="accessibility_requirements" type="text" placeholder="e.g. wheelchair-friendly, low walking, none" value="none" />
+          </label>
+
+          <fieldset class="field interests-field">
+            <legend>Interests</legend>
+            <div class="interest-grid" id="interestGrid">
+              <label><input type="checkbox" value="museums" checked /><span>Museums</span></label>
+              <label><input type="checkbox" value="parks" checked /><span>Parks</span></label>
+              <label><input type="checkbox" value="heritage" checked /><span>Heritage</span></label>
+              <label><input type="checkbox" value="shopping" /><span>Shopping</span></label>
+              <label><input type="checkbox" value="events" /><span>Events</span></label>
+              <label><input type="checkbox" value="dining" /><span>Dining</span></label>
+            </div>
+          </fieldset>
+
+          <div class="field-grid two">
+            <label class="field">
+              <span>Preferred start</span>
+              <input id="preferred_start_time" name="preferred_start_time" type="time" value="09:00" required />
+            </label>
+            <label class="field">
+              <span>Preferred end</span>
+              <input id="preferred_end_time" name="preferred_end_time" type="time" value="19:00" required />
+            </label>
+          </div>
+
+          <button class="primary-button" id="generateButton" type="submit">
+            <span class="button-spark">✦</span>
+            Generate my trip
+          </button>
+          <p class="form-note">Wejhatna may use live tools and web sources while planning. Future weather and traffic may be shown as estimates.</p>
+        </form>
+
+        <div class="planner-benefits">
+          <div><span>◌</span><p><strong>Prayer-aware</strong><br />Schedules around all five prayers.</p></div>
+          <div><span>↗</span><p><strong>Route-smart</strong><br />Tracks distance and travel time.</p></div>
+          <div><span>♿</span><p><strong>Accessibility-first</strong><br />Adapts the plan to mobility needs.</p></div>
+        </div>
+      </aside>
+
+      <section class="results-area" id="resultsArea" aria-live="polite">
+        <div class="hero-card card">
+          <div class="hero-copy">
+            <span class="hero-eyebrow">WEJHATNA AI TRIP PLANNER</span>
+            <h2>Build a smarter day in <span>Riyadh</span>.</h2>
+            <p>One page. One request. A complete plan shaped around the real constraints of your trip.</p>
+            <div class="hero-tags">
+              <span>Prayer times</span>
+              <span>Weather</span>
+              <span>Traffic</span>
+              <span>Routes</span>
+            </div>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <div class="sun-orb"></div>
+            <div class="skyline-shape skyline-a"></div>
+            <div class="skyline-shape skyline-b"></div>
+            <div class="skyline-shape skyline-c"></div>
+          </div>
+        </div>
+
+        <div id="emptyState" class="empty-state card">
+          <div class="empty-icon">✦</div>
+          <h3>Your itinerary will appear here</h3>
+          <p>Complete the planner and click <strong>Generate my trip</strong>. Wejhatna will organize the result into day-by-day cards with prayer times, weather, route distance, travel time, and traffic context.</p>
+        </div>
+
+        <div id="loadingState" class="loading-state card hidden">
+          <div class="loading-mark"><span></span><span></span><span></span></div>
+          <h3>Wejhatna is planning your trip</h3>
+          <p id="loadingText">Checking places, prayer times, weather, routes and traffic…</p>
+          <div class="progress-track"><div class="progress-bar"></div></div>
+        </div>
+
+        <div id="errorState" class="error-state card hidden">
+          <div class="error-icon">!</div>
+          <div>
+            <h3>We couldn’t generate the trip</h3>
+            <p id="errorMessage">Please try again.</p>
+          </div>
+        </div>
+
+        <div id="tripResults" class="trip-results hidden"></div>
+      </section>
+    </main>
+  </div>
+
+  <template id="dayTemplate">
+    <article class="day-card card">
+      <div class="day-heading">
+        <div>
+          <span class="day-number"></span>
+          <h3 class="day-date"></h3>
+        </div>
+        <span class="day-weather-badge"></span>
+      </div>
+      <div class="insight-grid">
+        <section class="insight-card weather-insight"></section>
+        <section class="insight-card prayer-insight"></section>
+        <section class="insight-card traffic-insight"></section>
+      </div>
+      <div class="timeline-wrap">
+        <div class="timeline-heading">
+          <div>
+            <span class="section-kicker">DAY PLAN</span>
+            <h4>Today’s itinerary</h4>
+          </div>
+          <span class="timeline-count"></span>
+        </div>
+        <div class="timeline"></div>
+      </div>
+    </article>
+  </template>
+
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

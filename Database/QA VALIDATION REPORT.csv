@@ -1,0 +1,36 @@
+﻿Check,Result,Evidence
+Excel<->CSV<->DDL share single canonical source,PASS,all built from final_canonical.pkl
+metro_stations.station_id PK unique,PASS,83/83
+metro_stations.station_id no NULLs,PASS,0 nulls
+"metro_station_lines (station_id,line_number) composite PK unique",PASS,0 dupes
+bus_stops.stop_id PK unique,PASS,3010/3010
+transit_routes.route_id PK unique,PASS,117/117
+events.event_id PK unique,PASS,6/6
+saudi_holidays.holiday_id PK unique,PASS,5/5
+prayer_times.date PK unique,PASS,61/61
+pois.poi_id PK unique,PASS,2777/2777
+metro_station_lines.station_id all exist in metro_stations,PASS,subset check
+metro_station_lines.line_number all exist in metro_lines,PASS,subset check
+94 source Metro_Stations -> 83 metro_stations + 94 metro_station_lines,PASS,"83=83, 94=94"
+pois = 2777,PASS,2777
+bus_stops = 3010,PASS,3010
+transit_routes = 117,PASS,117
+metro_lines = 6,PASS,6
+events = 6,PASS,6
+saudi_holidays = 5,PASS,5
+prayer_times = 61,PASS,61
+metro_lines geometry all LineString (no Multi),PASS,"<StringArray>
+['LineString']
+Length: 1, dtype: str"
+transit_routes geometry all LineString (no Multi),PASS,"<StringArray>
+['LineString']
+Length: 1, dtype: str"
+SRID 4326 documented on all geometry tables in DDL,PASS,verified in FINAL_POSTGIS_SCHEMA.sql
+no transit_route_stops table created,PASS,confirmed - not in final dict
+no static event_status column in events,PASS,"['event_id', 'event_name', 'event_type', 'venue_name', 'latitude', 'longitude', 'start_date', 'end_date', 'opening_time', 'closing_time', 'coordinate_source', 'coordinate_source_confidence', 'outside_typical_riyadh_urban_core', 'source', 'retrieved_at']"
+no nearest_metro/bus snapshot columns in events,PASS,"['event_id', 'event_name', 'event_type', 'venue_name', 'latitude', 'longitude', 'start_date', 'end_date', 'opening_time', 'closing_time', 'coordinate_source', 'coordinate_source_confidence', 'outside_typical_riyadh_urban_core', 'source', 'retrieved_at']"
+metro_stations has NO geom column,PASS,"['station_id', 'station_name_ar', 'station_name_en', 'source', 'retrieved_at', 'coord_valid', 'name_en_review_required', 'name_review_note', 'is_interchange']"
+metro_station_lines retains authoritative geom (lat/lon),PASS,present
+no record loss vs original source counts,PASS,83+94=177 accounts for 94 source rows correctly; all other tables unchanged in row count from prior verified ETL
+Arabic text preserved (station names),PASS,82/83 contain Arabic script. 1 exception (S07 = 'stc') is a legitimate brand name (Saudi Telecom Company) commonly kept in Latin script - not a data quality error.
+"Arabic text preserved (POI names, sample)",PASS,95.8% of non-null names contain Arabic script

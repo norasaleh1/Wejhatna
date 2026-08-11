@@ -1,0 +1,6 @@
+Flask>=3.0,<4.0
+google-genai>=1.17.0
+tavily-python>=0.7.27
+requests>=2.31.0
+python-dotenv>=1.0.1
+psycopg[binary]>=3.2.0
