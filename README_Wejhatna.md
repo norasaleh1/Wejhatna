@@ -1,0 +1,144 @@
+<p align="center">
+  <img src="docs/wejhatna-animated-header.gif" width="100%" alt="Wejhatna — Riyadh AI Decision Support Platform">
+</p>
+
+# Wejhatna : Riyadh AI Decision Support Platform
+
+An AI-powered decision support platform for Riyadh that combines spatial data, geospatial analysis, real-world APIs, and an AI Agent to provide context-aware recommendations and insights.
+
+## Project Overview
+
+The **Wejhatna** is designed to support smarter decisions by combining structured city data with spatial intelligence and AI reasoning.
+
+Instead of relying only on static information, the platform can use location-based data, spatial queries, external APIs, weather conditions, prayer times, and AI tool calling to analyze real-world conditions and generate useful recommendations.
+
+
+## Experience Riyadh
+
+<p align="center">
+  <img src="https://m.eyeofriyadh.com/news_images/2022/06/3328937316837.jpg" width="32%" alt="KAFD Riyadh">
+  <img src="https://asianitinerary.com/wp-content/uploads/2023/01/atturaif-lm-01-1066w-x-600h.jpeg" width="32%" alt="At-Turaif Diriyah">
+  <img src="https://portalcdn.spa.gov.sa/backend/original/202501/0evtlBIoS0v25EGOyJcOTFHwDDDEwCdVrcMblzBk.jpg" width="32%" alt="Boulevard World Riyadh">
+</p>
+
+<p align="center">
+  <i>From Riyadh's modern skyline to its heritage and entertainment destinations, Wejhatna turns the city into a smarter, context-aware journey.</i>
+</p>
+
+## Problem
+
+Urban decision-making often requires information from multiple disconnected sources, such as:
+
+- Geographic and spatial data
+- Points of interest and city infrastructure
+- Weather conditions
+- Maps and travel information
+- Structured datasets
+- User-specific queries and requirements
+
+Analyzing these sources manually can be slow and difficult, especially when spatial relationships and changing external conditions need to be considered.
+
+## Solution
+
+The platform creates a unified decision-support layer where:
+
+1. Data is collected, cleaned, and prepared.
+2. Structured and spatial data is stored in **PostgreSQL + PostGIS**.
+3. An **API / Data Layer** exposes safe and structured access to the data.
+4. An **AI Agent** interprets user requests and selects the appropriate tools.
+5. Tool Calling connects the agent to spatial queries, Google Maps, weather information, prayer times, and other external services.
+6. A frontend presents the final analysis and recommendations to the user.
+
+## Architecture
+
+```text
+        Data Sources
+             |
+             v
+   PostgreSQL + PostGIS
+             |
+             v
+      API / Data Layer
+             |
+             v
+          AI Agent
+      /      |       \
+     /       |        \
+Spatial   External    Prayer
+Analysis    APIs      Times
+           /   \
+     Google     Weather
+      Maps        API
+             |
+             v
+          Frontend
+```
+
+Simplified flow:
+
+```text
+Data → PostgreSQL/PostGIS → API/Data Layer → AI Agent → Frontend
+```
+
+## Core Technologies
+
+- **PostgreSQL** — relational database
+- **PostGIS** — geospatial database extension
+- **Spatial Analysis** — geographic queries and location-based analysis
+- **AI Agent** — reasoning and decision-support layer
+- **Tool Calling** — allows the AI Agent to call platform tools and APIs
+- **Google Maps** — mapping, places, routing, and location information
+- **Weather API** — real-time or forecast weather information
+- **Python** — backend, data processing, and agent development
+
+Additional technologies may be added as the project evolves.
+
+## Repository Structure
+
+```text
+riyadh-ai-decision-support-platform/
+│
+├── agent/
+│   ├── tools/
+│   └── README.md
+│
+├── backend/
+│   └── README.md
+│
+├── database/
+│   ├── schema/
+│   ├── sample_data/
+│   └── README.md
+│
+├── frontend/
+│   └── README.md
+│
+├── docs/
+│   └── README.md
+│
+├── .env.example
+├── .gitignore
+├── requirements.txt
+└── README.md
+```
+## Team Roles
+
+### Nora Alkhudar — Full-Stack Development, System Integration & Technical Implementation
+
+Led the technical integration and development of the final system, bringing the project’s separate components together into a fully functional application. Integrated the AI Agent with the structured database, replacing the initial mock-data workflow with real project data, and connected multiple external APIs and live services to enrich the agent with real-world information. Developed and enhanced both the backend and frontend, implemented the communication between the web interface, Flask backend, AI Agent, database, and external services, and handled the end-to-end data flow from user input to the generated itinerary. Also refined the user experience, system functionality, and overall technical architecture, transforming the individual project components into a cohesive platform.
+
+## Aryam Alsaidi
+
+## Shahad Alrashidi
+
+## Jowaher
+
+
+## Team
+
+Developed by:
+
+- Nora Alkhudar
+- Aryam Alsaidi
+- Shahad Alrashidi
+- Jowaher
