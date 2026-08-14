@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/wejhatna-animated-header.gif" width="100%" alt="Wejhatna — Riyadh AI Decision Support Platform">
+  <img src="docs/br.gif" width="100%" alt="Wejhatna — Riyadh AI Decision Support Platform">
 </p>
 
 # Wejhatna : Riyadh AI Decision Support Platform
