@@ -132,18 +132,22 @@ Led the technical integration and development of the final system, bringing the 
 Contribution
 
 * Led the team and the project’s geospatial data layer.
-* Processed, cleaned, standardized, and spatially validated 3,300+ records across 16 datasets.
-* Extracted and prepared POI data from OpenStreetMap and integrated it into the project’s spatial database.
+* Processed, cleaned, standardized, and spatially validated 3,300+ records
+    across 16 datasets.
+* Extracted and prepared POI data from OpenStreetMap and integrated it into
+    the project’s spatial database.
 * Designed the PostgreSQL/PostGIS schema and spatial relationships.
-* Established data governance and QA workflows, including the Data Dictionary, Rulebook, Review Queue, QA Reports, metadata, and provenance documentation.
-* Designed the dynamic data schema for integrating contextual and real-time data sources into the AI decision-support workflow.
+* Established data governance and QA workflows, including the Data Dictionary,
+    Rulebook, Review Queue, QA Reports, metadata, and provenance documentation.
+* Designed the dynamic data schema for integrating contextual and real-time
+    data sources into the AI decision-support workflow.
 
 Artifacts
 
-* Riyadh AI Decision Support Master FINAL.xlsx
-* Final POSTGIS SCHEMA.sql
-* QA Validation Report.csv
-* README Metadata.csv
+* Database/Riyadh AI Decision Support Master FINAL.xlsx
+* Database/Final POSTGIS SCHEMA.sql
+* Database/QA Validation Report.csv
+* Database/README Metadata.csv
 
 ## Shahad Alrashidi
 
