@@ -127,7 +127,21 @@ riyadh-ai-decision-support-platform/
 
 Led the technical integration and development of the final system, bringing the project’s separate components together into a fully functional application. Integrated the AI Agent with the structured database, replacing the initial mock-data workflow with real project data, and connected multiple external APIs and live services to enrich the agent with real-world information. Developed and enhanced both the backend and frontend, implemented the communication between the web interface, Flask backend, AI Agent, database, and external services, and handled the end-to-end data flow from user input to the generated itinerary. Also refined the user experience, system functionality, and overall technical architecture, transforming the individual project components into a cohesive platform.
 
-## Aryam Alsaidi
+## Aryam Alsaidi — Team Lead | GIS & Geospatial Data Engineering
+
+Contribution
+* Led the team and the project’s geospatial data layer.
+* Processed, cleaned, standardized, and spatially validated 3,300+ records across 16 datasets.
+* Extracted and prepared POI data from OpenStreetMap and integrated it with the project’s spatial database.
+* Designed the PostgreSQL/PostGIS schema and spatial relationships.
+* Established data governance and QA workflows, including Data Dictionary, Rulebook, Review Queue, QA Reports, metadata, and provenance documentation.
+* Designed the dynamic data schema required to integrate contextual and real-time data with the AI decision-support workflow.
+
+Artifacts
+* Riyadh AI Decision Support Master FINAL.xlsx
+* Final POSTGIS SCHEMA.sql
+* QA Validation Report.csv
+* README Metadata.csv
 
 ## Shahad Alrashidi
 
