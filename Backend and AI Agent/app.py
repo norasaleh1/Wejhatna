@@ -2,7 +2,7 @@ from flask import Flask, jsonify, render_template, request
 
 from agent import create_itinerary, replan_itinerary
 
-app = Flask(name, template_folder="../Fontend/templates", static_folder="../Fontend/static")
+app = Flask(__name__, template_folder="../Fontend/templates", static_folder="../Fontend/static")
 
 
 @app.get("/")
