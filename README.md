@@ -164,10 +164,6 @@ Data Governance & Quality
 * Applied structured quality checks to spatial, temporal, and relational data.
 * Maintained supporting documentation including the Data Dictionary, Rulebook, Review Queue, QA Reports, metadata, and provenance records.
 
-Database Implementation
-
-At the database level, the design uses spatial (GIST) indexes and quality constraints that reject invalid input, such as Riyadh’s geographic bounds, bus-direction values, and event date ordering. Derived information, like event status (upcoming, active, past) and the nearest transit stop to each event, is computed at query time through views rather than stored, so it remains current as the underlying data changes.
-
 Artifacts
 
 * Database/Riyadh AI Decision Support Master FINAL.xlsx
