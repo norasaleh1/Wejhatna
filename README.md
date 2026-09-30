@@ -49,6 +49,10 @@ The platform creates a unified decision-support layer where:
 5. Tool Calling connects the agent to spatial queries, Google Maps, weather information, prayer times, and other external services.
 6. A frontend presents the final analysis and recommendations to the user.
 
+## Database Implementation
+
+At the database level, the design uses spatial (GIST) indexes and quality constraints that reject invalid input, such as Riyadh’s geographic bounds, bus-direction values, and event date ordering. Derived information, like event status (upcoming, active, past) and the nearest transit stop to each event, is computed at query time through views rather than stored, so it remains current as the underlying data changes.
+
 ## Architecture
 
 ```text
@@ -130,6 +134,7 @@ Led the technical integration and development of the final system, bringing the 
 ### Aryam Alsaidi — Team Lead | GIS & Geospatial Data
 
 Contribution
+
 * Led the team and the project’s geospatial data track.
 * Collected, reviewed, cleaned, standardized, and spatially validated 6,100+ geospatial records across 9 database tables.
 * Extracted and prepared POI data from OpenStreetMap and integrated it into the project’s spatial database.
@@ -138,6 +143,7 @@ Contribution
 * Prepared structured spatial data to support contextual, temporal, and location-based information within the AI decision-support workflow.
 
 Database & Data Scope
+
 * 6,100+ geospatial records
 * 9 core database tables
 * 2,777 POIs
@@ -153,17 +159,24 @@ Database & Data Scope
 * Spatial indexes and database-level quality constraints
 
 Data Governance & Quality
+
 * Source records are documented separately with provenance, review status, confidence level, and source identifiers to support traceability and data governance.
 * Applied structured quality checks to spatial, temporal, and relational data.
 * Maintained supporting documentation including the Data Dictionary, Rulebook, Review Queue, QA Reports, metadata, and provenance records.
 
-Artifacts : 
+Database Implementation
+
+At the database level, the design uses spatial (GIST) indexes and quality constraints that reject invalid input, such as Riyadh’s geographic bounds, bus-direction values, and event date ordering. Derived information, like event status (upcoming, active, past) and the nearest transit stop to each event, is computed at query time through views rather than stored, so it remains current as the underlying data changes.
+
+Artifacts
+
 * Database/Riyadh AI Decision Support Master FINAL.xlsx
 * Database/Final POSTGIS SCHEMA.sql
 * Database/QA Validation Report.csv
 * Database/README Metadata.csv
 
-Repository Note : 
+Repository Note
+
 Supporting data, database structures, validation artifacts, and documentation are included in this repository for transparency and reproducibility.
 
 ## Shahad Alrashidi
