@@ -127,27 +127,44 @@ riyadh-ai-decision-support-platform/
 
 Led the technical integration and development of the final system, bringing the project’s separate components together into a fully functional application. Integrated the AI Agent with the structured database, replacing the initial mock-data workflow with real project data, and connected multiple external APIs and live services to enrich the agent with real-world information. Developed and enhanced both the backend and frontend, implemented the communication between the web interface, Flask backend, AI Agent, database, and external services, and handled the end-to-end data flow from user input to the generated itinerary. Also refined the user experience, system functionality, and overall technical architecture, transforming the individual project components into a cohesive platform.
 
-## Aryam Alsaidi — Team Lead | GIS & Geospatial Data Engineering
+Aryam Alsaidi — Team Lead | GIS & Geospatial Data
 
 Contribution
+* Led the team and the project’s geospatial data track.
+* Collected, reviewed, cleaned, standardized, and spatially validated 6,100+ geospatial records across 9 database tables.
+* Extracted and prepared POI data from OpenStreetMap and integrated it into the project’s spatial database.
+* Worked with the PostgreSQL/PostGIS database structure and spatial relationships supporting the application.
+* Established data governance and QA workflows, including the Data Dictionary, Rulebook, Review Queue, QA Reports, metadata, and provenance documentation.
+* Prepared structured spatial data to support contextual, temporal, and location-based information within the AI decision-support workflow.
 
-* Led the team and the project’s geospatial data layer.
-* Processed, cleaned, standardized, and spatially validated 3,300+ records
-    across 16 datasets.
-* Extracted and prepared POI data from OpenStreetMap and integrated it into
-    the project’s spatial database.
-* Designed the PostgreSQL/PostGIS schema and spatial relationships.
-* Established data governance and QA workflows, including the Data Dictionary,
-    Rulebook, Review Queue, QA Reports, metadata, and provenance documentation.
-* Designed the dynamic data schema for integrating contextual and real-time
-    data sources into the AI decision-support workflow.
+Database & Data Scope
+* 6,100+ geospatial records
+* 9 core database tables
+* 2,777 POIs
+* 83 metro stations
+* 3,010 bus stops
+* 117 transit routes
+* 94 metro station-line relationships
+* 6 major events
+* 5 Saudi official holidays
+* 61 prayer-time records
+* EPSG:4326 / WGS 84
+* Spatial and temporal relationships
+* Spatial indexes and database-level quality constraints
 
-Artifacts
+Data Governance & Quality
+* Source records are documented separately with provenance, review status, confidence level, and source identifiers to support traceability and data governance.
+* Applied structured quality checks to spatial, temporal, and relational data.
+* Maintained supporting documentation including the Data Dictionary, Rulebook, Review Queue, QA Reports, metadata, and provenance records.
 
+Artifacts : 
 * Database/Riyadh AI Decision Support Master FINAL.xlsx
 * Database/Final POSTGIS SCHEMA.sql
 * Database/QA Validation Report.csv
 * Database/README Metadata.csv
+
+Repository Note : 
+Supporting data, database structures, validation artifacts, and documentation are included in this repository for transparency and reproducibility.
 
 ## Shahad Alrashidi
 
